@@ -1,6 +1,12 @@
 # translateLocally
 Fast and secure translation on your local machine with a GUI, powered by marian and Bergamot.
 
+## Changes on branch `marek`
+
+- it's a portable version (all the settings and models are stored in the same folder as the executable)
+- do not register itself with Firefox and Chrome
+
+
 ## Downloads
 
 You can download the latest automatic build for Windows, Linux and Mac from the [releases](https://github.com/XapaJIaMnu/translateLocally/releases) github tab or from the [official website](https://translatelocally.com). We also have compatibility builds for Windows and Mac that aim to cover very old hardware and M1.

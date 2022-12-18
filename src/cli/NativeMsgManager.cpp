@@ -23,6 +23,9 @@
 static QRegularExpression firefoxExtensionPattern("^\\{[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\}$|^[a-z0-9-._]*@[a-z0-9-._]+$", QRegularExpression::CaseInsensitiveOption);
 
 bool NativeMsgManager::writeNativeMessagingAppManifests(QSet<QString> nativeMessagingClients) {
+    // do not register itself with Firefox and Chrome
+    return true;
+
     // See https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Native_manifests
     // Intentionally lower case to avoid any issues/confusion with case-sensitive filesystems
     QString name = "translatelocally";

@@ -11,6 +11,11 @@
 #include "cli/NativeMsgIface.h"
 #include "types.h"
 
+void set_settings_folder()
+{
+    QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, QCoreApplication::applicationDirPath() + "/translateLocallyData");
+}
+
 int main(int argc, char *argv[])
 {
     // Set marian to throw exceptions instead of std::abort()
@@ -31,6 +36,9 @@ int main(int argc, char *argv[])
         QCoreApplication translateLocally(argc, argv);
         QCoreApplication::setApplicationName("translateLocally");
         QCoreApplication::setApplicationVersion(TRANSLATELOCALLY_VERSION_FULL);
+
+        set_settings_folder();
+
         QCommandLineParser parser;
         translateLocally::CLIArgumentInit(translateLocally, parser);
 
@@ -59,6 +67,8 @@ int main(int argc, char *argv[])
     QApplication translateLocally(argc, argv);
     QCoreApplication::setApplicationName("translateLocally");
     QCoreApplication::setApplicationVersion(TRANSLATELOCALLY_VERSION_FULL);
+
+    set_settings_folder();
 
     MainWindow w;
     w.show();
